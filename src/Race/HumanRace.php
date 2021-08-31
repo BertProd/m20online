@@ -1,4 +1,9 @@
 <?php
+/**
+ * According to microlite20 rules, humans get bonus +1 for each skill
+ * 
+ * @author Bertrand Andres
+ */
 namespace M20Online\Race;
 
 use M20Online\Entity\CharacterEntity;
