@@ -5,5 +5,5 @@ use M20Online\Entity\CharacterEntity;
 
 interface RaceInterface
 {
-    public function applyBonus(CharacterEntity $pCharacterEntity);
+    public function applyBonus(CharacterEntity $pCharacterEntity) : void;
 }

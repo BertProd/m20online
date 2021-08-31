@@ -5,11 +5,19 @@ use M20Online\Entity\CharacterEntity;
 
 final class HumanRace extends RaceAbstract
 {
-    public function applyBonus(CharacterEntity $pCharacterEntity)
+    public function applyBonus(CharacterEntity $pCharacterEntity) : void
     {
-        $pCharacterEntity->applySkillBonus(CharacterEntity::SKILL_COMMUNICATION, 1);
-        $pCharacterEntity->applySkillBonus(CharacterEntity::SKILL_KNOWLEDGE, 1);
-        $pCharacterEntity->applySkillBonus(CharacterEntity::SKILL_PHYSICAL, 1);
-        $pCharacterEntity->applySkillBonus(CharacterEntity::SKILL_SUBTERFUGE, 1);
+        $skills = [
+            CharacterEntity::SKILL_COMMUNICATION,
+            CharacterEntity::SKILL_KNOWLEDGE,
+            CharacterEntity::SKILL_PHYSICAL,
+            CharacterEntity::SKILL_SUBTERFUGE
+        ];
+
+        foreach ($skills as $skill) {
+            $currentSkillBonus = $pCharacterEntity->getSkillBonus($skill);
+
+            $pCharacterEntity->setSkillBonus($skill, $currentSkillBonus + 1);
+        }
     }
 }
