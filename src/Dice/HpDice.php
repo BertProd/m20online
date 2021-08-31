@@ -3,7 +3,7 @@ namespace M20Online\Dice;
 
 use LogicException;
 
-final class HpDice implements DiceInterface
+final class HpDice extends DiceAbstract
 {
     private RandomGeneratorInterface $randomGenerator;
 

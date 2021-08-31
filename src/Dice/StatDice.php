@@ -1,7 +1,7 @@
 <?php
 namespace M20Online\Dice;
 
-final class StatDice implements DiceInterface
+final class StatDice extends DiceAbstract
 {
     private RandomGeneratorInterface $randomGenerator;
 
