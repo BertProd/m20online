@@ -13,10 +13,10 @@ final class RaceFactory
         $className = $this->generateClassName($pValue);
 
         if (!class_exists($className)) {
-            throw new InvalidArgumentException('Race '.$pValue.' not found');
+            throw new InvalidArgumentException('Race '.$pValue.' ('.$className.') not found');
         }
 
-        if (!in_array('RaceInterface', class_implements($className))) {
+        if (!in_array(__NAMESPACE__.'\RaceInterface', class_implements($className))) {
             throw new LogicException('Race '.$pValue.' does not implement RaceInterface');
         }
 
@@ -25,6 +25,6 @@ final class RaceFactory
 
     private function generateClassName($pValue) : string
     {
-        return ucfirst(strtolower($pValue)).'Race';
+        return __NAMESPACE__.'\\'.ucfirst(strtolower($pValue)).'Race';
     }
 }
