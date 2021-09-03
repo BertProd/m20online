@@ -19,14 +19,6 @@ final class ElfRaceTest extends TestCase
 
         $characterEntity = new CharacterEntity([]);
 
-        foreach ($stats as $stat) {
-            $characterEntity->setStatBonus($stat, 0);
-        }
-        
-        foreach ($skills as $skill) {
-            $characterEntity->setSkillBonus($skill, 0);
-        }
-
         $elfRace = new ElfRace();
         $elfRace->applyBonus($characterEntity);
 

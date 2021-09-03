@@ -12,8 +12,6 @@ final class DwarfRace extends RaceAbstract
 {
     public function applyBonus (CharacterEntity $pCharacterEntity) : void
     {
-        $currentStatBonus = $pCharacterEntity->getStatBonus(CharacterEntity::STAT_STR);
-
-        $pCharacterEntity->setStatBonus(CharacterEntity::STAT_STR, $currentStatBonus + 2);
+        $pCharacterEntity->addStatBonus(CharacterEntity::STAT_STR, 2);
     }
 }

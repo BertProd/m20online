@@ -12,8 +12,6 @@ final class ElfRace extends RaceAbstract
 {
     public function applyBonus (CharacterEntity $pCharacterEntity) : void
     {
-        $currentStatBonus = $pCharacterEntity->getStatBonus(CharacterEntity::STAT_MIND);
-
-        $pCharacterEntity->setStatBonus(CharacterEntity::STAT_MIND, $currentStatBonus + 2);
+        $pCharacterEntity->addStatBonus(CharacterEntity::STAT_MIND, 2);
     }
 }

@@ -53,10 +53,10 @@ final class CharacterEntityTest extends TestCase
     {
         $characterEntity = new CharacterEntity([]);
 
-        $characterEntity->setSkillBonus(CharacterEntity::SKILL_PHYSICAL, 1);
-        $characterEntity->setSkillBonus(CharacterEntity::SKILL_SUBTERFUGE, 2);
-        $characterEntity->setSkillBonus(CharacterEntity::SKILL_KNOWLEDGE, 3);
-        $characterEntity->setSkillBonus(CharacterEntity::SKILL_COMMUNICATION, 4);
+        $characterEntity->addSkillBonus(CharacterEntity::SKILL_PHYSICAL, 1);
+        $characterEntity->addSkillBonus(CharacterEntity::SKILL_SUBTERFUGE, 2);
+        $characterEntity->addSkillBonus(CharacterEntity::SKILL_KNOWLEDGE, 3);
+        $characterEntity->addSkillBonus(CharacterEntity::SKILL_COMMUNICATION, 4);
 
         $this->assertSame(1, $characterEntity->getSkillBonus(CharacterEntity::SKILL_PHYSICAL));
         $this->assertSame(2, $characterEntity->getSkillBonus(CharacterEntity::SKILL_SUBTERFUGE));
@@ -72,7 +72,7 @@ final class CharacterEntityTest extends TestCase
         $this->expectExceptionMessage('Skill '.$skill.' not found');
 
         $characterEntity = new CharacterEntity([]);
-        $characterEntity->setSkillBonus($skill, 1);
+        $characterEntity->addSkillBonus($skill, 1);
     }
 
     public function testGetWrongSkillBonus ()
@@ -90,9 +90,9 @@ final class CharacterEntityTest extends TestCase
     {
         $characterEntity = new CharacterEntity([]);
 
-        $characterEntity->setStatBonus(CharacterEntity::STAT_MIND, 1);
-        $characterEntity->setStatBonus(CharacterEntity::STAT_STR, 2);
-        $characterEntity->setStatBonus(CharacterEntity::STAT_DEX, 3);
+        $characterEntity->addStatBonus(CharacterEntity::STAT_MIND, 1);
+        $characterEntity->addStatBonus(CharacterEntity::STAT_STR, 2);
+        $characterEntity->addStatBonus(CharacterEntity::STAT_DEX, 3);
 
         $this->assertSame(1, $characterEntity->getStatBonus(CharacterEntity::STAT_MIND));
         $this->assertSame(2, $characterEntity->getStatBonus(CharacterEntity::STAT_STR));
@@ -107,7 +107,7 @@ final class CharacterEntityTest extends TestCase
         $this->expectExceptionMessage('Stat '.$stat.' not found');
 
         $characterEntity = new CharacterEntity([]);
-        $characterEntity->setStatBonus($stat, 1);
+        $characterEntity->addStatBonus($stat, 1);
     }
 
     public function testGetWrongStatBonus ()
@@ -125,9 +125,9 @@ final class CharacterEntityTest extends TestCase
     {
         $characterEntity = new CharacterEntity([]);
 
-        $characterEntity->setStatBonus(CharacterEntity::STAT_MIND, 1);
-        $characterEntity->setStatBonus(CharacterEntity::STAT_STR, 2);
-        $characterEntity->setStatBonus(CharacterEntity::STAT_DEX, 3);
+        $characterEntity->addStatBonus(CharacterEntity::STAT_MIND, 1);
+        $characterEntity->addStatBonus(CharacterEntity::STAT_STR, 2);
+        $characterEntity->addStatBonus(CharacterEntity::STAT_DEX, 3);
 
         $this->assertSame(1, $characterEntity->getStatBonusFromSkill (CharacterEntity::SKILL_COMMUNICATION));
         $this->assertSame(1, $characterEntity->getStatBonusFromSkill (CharacterEntity::SKILL_KNOWLEDGE));

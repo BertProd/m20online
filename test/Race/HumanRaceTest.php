@@ -19,14 +19,6 @@ final class HumanRaceTest extends TestCase
 
         $characterEntity = new CharacterEntity([]);
 
-        foreach ($skills as $skill) {
-            $characterEntity->setSkillBonus($skill, 0);
-        }
-
-        foreach ($stats as $stat) {
-            $characterEntity->setStatBonus($stat, 0);
-        }
-
         $humanRace = new HumanRace();
         $humanRace->applyBonus($characterEntity);
 

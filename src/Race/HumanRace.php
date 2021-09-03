@@ -20,9 +20,7 @@ final class HumanRace extends RaceAbstract
         ];
 
         foreach ($skills as $skill) {
-            $currentSkillBonus = $pCharacterEntity->getSkillBonus($skill);
-
-            $pCharacterEntity->setSkillBonus($skill, $currentSkillBonus + 1);
+            $pCharacterEntity->addSkillBonus($skill, 1);
         }
     }
 }

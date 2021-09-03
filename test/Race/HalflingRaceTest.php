@@ -19,14 +19,6 @@ final class HalflingRaceTest extends TestCase
 
         $characterEntity = new CharacterEntity([]);
 
-        foreach ($stats as $stat) {
-            $characterEntity->setStatBonus($stat, 0);
-        }
-        
-        foreach ($skills as $skill) {
-            $characterEntity->setSkillBonus($skill, 0);
-        }
-
         $halflingRace = new HalflingRace();
         $halflingRace->applyBonus($characterEntity);
 

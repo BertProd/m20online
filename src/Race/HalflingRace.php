@@ -12,8 +12,6 @@ final class HalflingRace extends RaceAbstract
 {
     public function applyBonus (CharacterEntity $pCharacterEntity) : void
     {
-        $currentStatBonus = $pCharacterEntity->getStatBonus(CharacterEntity::STAT_DEX);
-
-        $pCharacterEntity->setStatBonus(CharacterEntity::STAT_DEX, $currentStatBonus + 2);
+        $pCharacterEntity->addStatBonus(CharacterEntity::STAT_DEX, 2);
     }
 }
