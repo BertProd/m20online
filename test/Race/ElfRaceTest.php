@@ -22,12 +22,12 @@ final class ElfRaceTest extends TestCase
         $elfRace = new ElfRace();
         $elfRace->applyBonus($characterEntity);
 
-        $this->assertSame(0, $characterEntity->getStatBonus(CharacterEntity::STAT_DEX));
-        $this->assertSame(2, $characterEntity->getStatBonus(CharacterEntity::STAT_MIND));
-        $this->assertSame(0, $characterEntity->getStatBonus(CharacterEntity::STAT_STR));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_DEX));
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_MIND));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_STR));
 
         foreach ($skills as $skill) {
-            $this->assertSame(0, $characterEntity->getSkillBonus($skill));
+            $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, $skill));
         }
     }
 }

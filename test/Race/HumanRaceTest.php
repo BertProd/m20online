@@ -23,11 +23,11 @@ final class HumanRaceTest extends TestCase
         $humanRace->applyBonus($characterEntity);
 
         foreach ($skills as $skill) {
-            $this->assertSame(1, $characterEntity->getSkillBonus($skill));
+            $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, $skill));
         }
 
         foreach ($stats as $stat) {
-            $this->assertSame(0, $characterEntity->getStatBonus($stat));
+            $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, $stat));
         }
     }
 }
