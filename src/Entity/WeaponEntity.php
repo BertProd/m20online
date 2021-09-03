@@ -2,7 +2,7 @@
 
 namespace M20Online\Entity;
 
-final class WeaponEntity extends EquipmentAbstract
+final class WeaponEntity extends EntityAbstract
 {
     protected array $data = [
         'name' => '',
