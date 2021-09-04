@@ -5,38 +5,28 @@ use InvalidArgumentException;
 
 final class CharacterEntity extends EntityAbstract
 {
-    const BONUS_COMBAT = 'combat';
-    const BONUS_SKILL = 'skill';
-    const BONUS_STAT = 'stat';
+    const COMBAT_ATTACK = 'combat_attack';
+    const COMBAT_DAMAGE = 'combat_damage';
 
-    const COMBAT_ATTACK = 'attack';
-    const COMBAT_DAMAGE = 'damage';
+    const STAT_STR = 'stat_str';
+    const STAT_DEX = 'stat_dex';
+    const STAT_MIND = 'stat_mind';
 
-    const STAT_STR = 'str';
-    const STAT_DEX = 'dex';
-    const STAT_MIND = 'mind';
-
-    const SKILL_PHYSICAL = 'physical';
-    const SKILL_SUBTERFUGE = 'subterfuge';
-    const SKILL_KNOWLEDGE = 'knowledge';
-    const SKILL_COMMUNICATION = 'communication';
+    const SKILL_PHYSICAL = 'skill_physical';
+    const SKILL_SUBTERFUGE = 'skill_subterfuge';
+    const SKILL_KNOWLEDGE = 'skill_knowledge';
+    const SKILL_COMMUNICATION = 'skill_communication';
 
     private $bonusList = [
-        self::BONUS_COMBAT => [
-            self::COMBAT_ATTACK => 0,
-            self::COMBAT_DAMAGE => 0    
-        ],
-        self::BONUS_STAT => [
-            self::STAT_STR => 0,
-            self::STAT_DEX => 0,
-            self::STAT_MIND => 0    
-        ],
-        self::BONUS_SKILL => [
-            self::SKILL_PHYSICAL => 0,
-            self::SKILL_SUBTERFUGE => 0,
-            self::SKILL_KNOWLEDGE => 0,
-            self::SKILL_COMMUNICATION => 0
-        ]
+        self::COMBAT_ATTACK => 0,
+        self::COMBAT_DAMAGE => 0,
+        self::STAT_STR => 0,
+        self::STAT_DEX => 0,
+        self::STAT_MIND => 0,
+        self::SKILL_PHYSICAL => 0,
+        self::SKILL_SUBTERFUGE => 0,
+        self::SKILL_KNOWLEDGE => 0,
+        self::SKILL_COMMUNICATION => 0
     ];
     
     protected array $data = [
@@ -51,54 +41,51 @@ final class CharacterEntity extends EntityAbstract
 
     public function set(string $pKey, $pValue) : void
     {
-        if (array_key_exists($pKey, $this->bonusList[self::BONUS_STAT])) {
+        if (in_array($pKey, [self::STAT_STR, self::STAT_DEX, self::STAT_MIND])) {
             // it's a stat, calc bonus:
-            $this->addBonus(self::BONUS_STAT, $pKey, floor(($pValue - 10) / 2));
+            $this->addBonus($pKey, floor(($pValue - 10) / 2));
         }
 
         parent::set($pKey, $pValue);
     }
 
-    private function checkBonusExists(string $pBonusType, string $pBonus) : void
+    private function checkBonusExists(string $pBonus) : void
     {
-        if (
-                !array_key_exists($pBonusType, $this->bonusList)
-            ||  !array_key_exists($pBonus, $this->bonusList[$pBonusType])
-        ) {
-            throw new InvalidArgumentException('Bonus '.$pBonusType.' '.$pBonus.' not found');
+        if (!array_key_exists($pBonus, $this->bonusList)) {
+            throw new InvalidArgumentException('Bonus '.$pBonus.' not found');
         }
     }
 
-    public function addBonus (string $pBonusType, string $pBonus, int $pValue) : void
+    public function addBonus (string $pBonus, int $pValue) : void
     {
-        $this->checkBonusExists($pBonusType, $pBonus);
+        $this->checkBonusExists($pBonus);
 
-        $this->bonusList[$pBonusType][$pBonus] += $pValue;
+        $this->bonusList[$pBonus] += $pValue;
     }
 
-    public function getBonus (string $pBonusType, string $pBonus) : int
+    public function getBonus (string $pBonus) : int
     {
-        $this->checkBonusExists($pBonusType, $pBonus);
+        $this->checkBonusExists($pBonus);
 
-        return $this->bonusList[$pBonusType][$pBonus];
+        return $this->bonusList[$pBonus];
     }
 
     public function getStatBonusFromSkill ($pSkill) : int
     {
         if (self::SKILL_COMMUNICATION === $pSkill) {
-            return $this->getBonus(self::BONUS_STAT, self::STAT_MIND);
+            return $this->getBonus(self::STAT_MIND);
         }
 
         if (self::SKILL_KNOWLEDGE === $pSkill) {
-            return $this->getBonus(self::BONUS_STAT, self::STAT_MIND);
+            return $this->getBonus(self::STAT_MIND);
         }
 
         if (self::SKILL_PHYSICAL === $pSkill) {
-            return $this->getBonus(self::BONUS_STAT, self::STAT_STR);
+            return $this->getBonus(self::STAT_STR);
         }
 
         if (self::SKILL_SUBTERFUGE === $pSkill) {
-            return $this->getBonus(self::BONUS_STAT, self::STAT_DEX);
+            return $this->getBonus(self::STAT_DEX);
         }
 
         throw new InvalidArgumentException('Skill '.$pSkill.' not found.');

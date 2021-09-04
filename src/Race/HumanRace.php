@@ -20,7 +20,7 @@ final class HumanRace extends RaceAbstract
         ];
 
         foreach ($skills as $skill) {
-            $pCharacterEntity->addBonus(CharacterEntity::BONUS_SKILL, $skill, 1);
+            $pCharacterEntity->addBonus($skill, 1);
         }
     }
 }

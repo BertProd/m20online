@@ -53,15 +53,15 @@ final class CharacterEntityTest extends TestCase
     {
         $characterEntity = new CharacterEntity([]);
 
-        $characterEntity->addBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_PHYSICAL, 1);
-        $characterEntity->addBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_SUBTERFUGE, 2);
-        $characterEntity->addBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_KNOWLEDGE, 3);
-        $characterEntity->addBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_COMMUNICATION, 4);
+        $characterEntity->addBonus(CharacterEntity::SKILL_PHYSICAL, 1);
+        $characterEntity->addBonus(CharacterEntity::SKILL_SUBTERFUGE, 2);
+        $characterEntity->addBonus(CharacterEntity::SKILL_KNOWLEDGE, 3);
+        $characterEntity->addBonus(CharacterEntity::SKILL_COMMUNICATION, 4);
 
-        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_PHYSICAL));
-        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_SUBTERFUGE));
-        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_KNOWLEDGE));
-        $this->assertSame(4, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, CharacterEntity::SKILL_COMMUNICATION));
+        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::SKILL_SUBTERFUGE));
+        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::SKILL_KNOWLEDGE));
+        $this->assertSame(4, $characterEntity->getBonus(CharacterEntity::SKILL_COMMUNICATION));
     }
 
     public function testSetWrongSkillBonus ()
@@ -69,10 +69,10 @@ final class CharacterEntityTest extends TestCase
         $skill = 'non-exists';
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Bonus skill '.$skill.' not found');
+        $this->expectExceptionMessage('Bonus '.$skill.' not found');
 
         $characterEntity = new CharacterEntity([]);
-        $characterEntity->addBonus(CharacterEntity::BONUS_SKILL, $skill, 1);
+        $characterEntity->addBonus($skill, 1);
     }
 
     public function testGetWrongSkillBonus ()
@@ -80,23 +80,23 @@ final class CharacterEntityTest extends TestCase
         $skill = 'non-exists';
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Bonus skill '.$skill.' not found');
+        $this->expectExceptionMessage('Bonus '.$skill.' not found');
 
         $characterEntity = new CharacterEntity([]);
-        $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, $skill);
+        $characterEntity->getBonus($skill);
     }
 
     public function testStatBonusValues ()
     {
         $characterEntity = new CharacterEntity([]);
 
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_MIND, 1);
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_STR, 2);
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_DEX, 3);
+        $characterEntity->addBonus(CharacterEntity::STAT_MIND, 1);
+        $characterEntity->addBonus(CharacterEntity::STAT_STR, 2);
+        $characterEntity->addBonus(CharacterEntity::STAT_DEX, 3);
 
-        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_MIND));
-        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_STR));
-        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_DEX));
+        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::STAT_MIND));
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::STAT_STR));
+        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::STAT_DEX));
     }
 
     public function testSetWrongStatBonus ()
@@ -104,10 +104,10 @@ final class CharacterEntityTest extends TestCase
         $stat = 'non-exists';
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Bonus stat '.$stat.' not found');
+        $this->expectExceptionMessage('Bonus '.$stat.' not found');
 
         $characterEntity = new CharacterEntity([]);
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, $stat, 1);
+        $characterEntity->addBonus($stat, 1);
     }
 
     public function testGetWrongStatBonus ()
@@ -115,19 +115,19 @@ final class CharacterEntityTest extends TestCase
         $stat = 'non-exists';
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Bonus stat '.$stat.' not found');
+        $this->expectExceptionMessage('Bonus '.$stat.' not found');
 
         $characterEntity = new CharacterEntity([]);
-        $characterEntity->getBonus(CharacterEntity::BONUS_STAT, $stat);
+        $characterEntity->getBonus($stat);
     }
 
     public function testGetStatBonusFromSkill ()
     {
         $characterEntity = new CharacterEntity([]);
 
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_MIND, 1);
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_STR, 2);
-        $characterEntity->addBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_DEX, 3);
+        $characterEntity->addBonus(CharacterEntity::STAT_MIND, 1);
+        $characterEntity->addBonus(CharacterEntity::STAT_STR, 2);
+        $characterEntity->addBonus(CharacterEntity::STAT_DEX, 3);
 
         $this->assertSame(1, $characterEntity->getStatBonusFromSkill (CharacterEntity::SKILL_COMMUNICATION));
         $this->assertSame(1, $characterEntity->getStatBonusFromSkill (CharacterEntity::SKILL_KNOWLEDGE));

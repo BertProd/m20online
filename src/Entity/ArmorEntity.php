@@ -2,7 +2,7 @@
 
 namespace M20Online\Entity;
 
-final class ArmorEntity extends EquipmentAbstract
+final class ArmorEntity extends EntityAbstract
 {
     const LOWER_ARMOR = 'lower';
 

@@ -22,12 +22,12 @@ final class HalflingRaceTest extends TestCase
         $halflingRace = new HalflingRace();
         $halflingRace->applyBonus($characterEntity);
 
-        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_DEX));
-        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_MIND));
-        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_STAT, CharacterEntity::STAT_STR));
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::STAT_DEX));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::STAT_MIND));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::STAT_STR));
 
         foreach ($skills as $skill) {
-            $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::BONUS_SKILL, $skill));
+            $this->assertSame(0, $characterEntity->getBonus($skill));
         }
     }
 }
