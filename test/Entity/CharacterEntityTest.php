@@ -12,9 +12,9 @@ final class CharacterEntityTest extends TestCase
             CharacterEntity::STAT_STR => 14,
             CharacterEntity::STAT_DEX => 12,
             CharacterEntity::STAT_MIND => 16,
-            'level' => 8,
-            'xp' => 85,
-            'hp' => 32
+            CharacterEntity::FIELD_LEVEL => 8,
+            CharacterEntity::FIELD_XP => 85,
+            CharacterEntity::FIELD_HP => 32
         ];
 
         $characterEntity = new CharacterEntity($data);
@@ -23,9 +23,9 @@ final class CharacterEntityTest extends TestCase
         $this->assertSame(14, $characterEntity->get(CharacterEntity::STAT_STR));
         $this->assertSame(12, $characterEntity->get(CharacterEntity::STAT_DEX));
         $this->assertSame(16, $characterEntity->get(CharacterEntity::STAT_MIND));
-        $this->assertSame(8, $characterEntity->get('level'));
-        $this->assertSame(85, $characterEntity->get('xp'));
-        $this->assertSame(32, $characterEntity->get('hp'));
+        $this->assertSame(8, $characterEntity->get(CharacterEntity::FIELD_LEVEL));
+        $this->assertSame(85, $characterEntity->get(CharacterEntity::FIELD_XP));
+        $this->assertSame(32, $characterEntity->get(CharacterEntity::FIELD_HP));
     }
 
     public function testSetNonExistingData ()

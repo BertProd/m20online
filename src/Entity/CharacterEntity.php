@@ -17,6 +17,13 @@ final class CharacterEntity extends EntityAbstract
     const SKILL_KNOWLEDGE = 'skill_knowledge';
     const SKILL_COMMUNICATION = 'skill_communication';
 
+    const FIELD_NAME = 'field_name';
+    const FIELD_RACE = 'field_race';
+    const FIELD_JOB = 'field_job';
+    const FIELD_LEVEL = 'field_level';
+    const FIELD_XP = 'field_xp';
+    const FIELD_HP = 'field_hp';
+
     private $bonusList = [
         self::COMBAT_ATTACK => 0,
         self::COMBAT_DAMAGE => 0,
@@ -30,13 +37,15 @@ final class CharacterEntity extends EntityAbstract
     ];
     
     protected array $data = [
-        'name' => '',
+        self::FIELD_NAME => '',
+        self::FIELD_RACE => '',
+        self::FIELD_JOB => '',
         self::STAT_STR => 0,
         self::STAT_DEX => 0,
         self::STAT_MIND => 0,
-        'level' => 1,
-        'xp' => 0,
-        'hp' => 0
+        self::FIELD_LEVEL => 1,
+        self::FIELD_XP => 0,
+        self::FIELD_HP => 0
     ];
 
     public function set(string $pKey, $pValue) : void
