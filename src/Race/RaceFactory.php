@@ -3,6 +3,7 @@ namespace M20Online\Race;
 
 use InvalidArgumentException;
 use LogicException;
+use ReflectionClass;
 
 final class RaceFactory
 {
@@ -20,7 +21,8 @@ final class RaceFactory
             throw new LogicException('Race '.$pValue.' does not implement RaceInterface');
         }
 
-        return new $className();
+        $reflectedClass = new ReflectionClass($className);
+        return $reflectedClass->newInstance();
     }
 
     private function generateClassName($pValue) : string
