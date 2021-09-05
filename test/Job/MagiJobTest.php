@@ -15,6 +15,24 @@ final class MagiJobTest extends TestCase
 
         $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::SKILL_KNOWLEDGE));
     }
+    
+    public function testApplyLevelBonus ()
+    {
+        $characterEntity = new CharacterEntity([]);
+
+        $magiJob = new MagiJob([]);
+
+        for ($i = 1; $i <= 5; $i++) {
+            $characterEntity->set(CharacterEntity::FIELD_LEVEL, $i);
+            $magiJob->applyLevelBonus($characterEntity);
+        }
+
+        $magiJob->applyLevelBonus($characterEntity);
+
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+    }
 
     public function testCanEquipArmor ()
     {

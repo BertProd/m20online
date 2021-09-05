@@ -10,7 +10,7 @@ final class FighterJobTest extends TestCase
     public function testApplyBonus ()
     {
         $characterEntity = new CharacterEntity([
-            'level' => 1
+            CharacterEntity::FIELD_LEVEL => 1
         ]);
 
         $fighterJob = new FighterJob([]);
@@ -22,7 +22,7 @@ final class FighterJobTest extends TestCase
         $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
 
         $characterEntity = new CharacterEntity([
-            'level' => 5
+            CharacterEntity::FIELD_LEVEL => 5
         ]);
         
         $fighterJob->applyBonus($characterEntity);
@@ -32,7 +32,7 @@ final class FighterJobTest extends TestCase
         $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
 
         $characterEntity = new CharacterEntity([
-            'level' => 10
+            CharacterEntity::FIELD_LEVEL => 10
         ]);
         
         $fighterJob->applyBonus($characterEntity);
@@ -40,6 +40,57 @@ final class FighterJobTest extends TestCase
         $this->assertSame(5, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
         $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
         $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+    }
+
+    public function testApplyLevelBonus ()
+    {
+        $characterEntity = new CharacterEntity([
+            CharacterEntity::FIELD_LEVEL => 1
+        ]);
+
+        $fighterJob = new FighterJob([]);
+
+        $fighterJob->applyLevelBonus($characterEntity);
+
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+
+        for ($i = 1; $i <= 5; $i++) {
+            $characterEntity->set(CharacterEntity::FIELD_LEVEL, $i);
+            $fighterJob->applyLevelBonus($characterEntity);
+        }
+
+        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(1, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+
+        for ($i = 6; $i <= 10; $i++) {
+            $characterEntity->set(CharacterEntity::FIELD_LEVEL, $i);
+            $fighterJob->applyLevelBonus($characterEntity);
+        }
+
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(2, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+
+        for ($i = 11; $i <= 15; $i++) {
+            $characterEntity->set(CharacterEntity::FIELD_LEVEL, $i);
+            $fighterJob->applyLevelBonus($characterEntity);
+        }
+
+        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+
+        for ($i = 16; $i <= 20; $i++) {
+            $characterEntity->set(CharacterEntity::FIELD_LEVEL, $i);
+            $fighterJob->applyLevelBonus($characterEntity);
+        }
+
+        $this->assertSame(4, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(4, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(4, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
     }
 
     public function testCanEquipArmor()

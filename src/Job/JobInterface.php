@@ -14,6 +14,8 @@ interface JobInterface
 {
     public function applyBonus (CharacterEntity $pCharacterEntity) : void;
 
+    public function applyLevelBonus (CharacterEntity $pCharacterEntity) : void;
+
     public function canEquipArmor (ArmorEntity $pArmorEntity) : bool;
 
     public function canEquipShield () : bool;

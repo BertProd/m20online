@@ -24,7 +24,7 @@ final class FighterJob extends JobAbstract
         $pCharacterEntity->addBonus(CharacterEntity::COMBAT_ATTACK, 1);
         $pCharacterEntity->addBonus(CharacterEntity::COMBAT_DAMAGE, 1);
 
-        $level = $pCharacterEntity->get('level');
+        $level = $pCharacterEntity->get(CharacterEntity::FIELD_LEVEL);
 
         $nbIterations = floor($level / 5);
 
@@ -33,6 +33,22 @@ final class FighterJob extends JobAbstract
             $pCharacterEntity->addBonus(CharacterEntity::COMBAT_ATTACK, 1);
             $pCharacterEntity->addBonus(CharacterEntity::COMBAT_DAMAGE, 1);
         }
+    }
+
+    /**
+     * Each five levels, increase skill physical, combat attack and damage by 1
+     */
+    public function applyLevelBonus (CharacterEntity $pCharacterEntity) : void
+    {
+        $level = $pCharacterEntity->get(CharacterEntity::FIELD_LEVEL);
+
+        if (0 !== $level % 5) {
+            return;
+        }
+
+        $pCharacterEntity->addBonus(CharacterEntity::SKILL_PHYSICAL, 1);
+        $pCharacterEntity->addBonus(CharacterEntity::COMBAT_ATTACK, 1);
+        $pCharacterEntity->addBonus(CharacterEntity::COMBAT_DAMAGE, 1);
     }
 
     public function canEquipArmor (ArmorEntity $pArmorEntity) : bool

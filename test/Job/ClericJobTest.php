@@ -15,6 +15,24 @@ final class ClericJobTest extends TestCase
 
         $this->assertSame(3, $characterEntity->getBonus(CharacterEntity::SKILL_COMMUNICATION));
     }
+    
+    public function testApplyLevelBonus ()
+    {
+        $characterEntity = new CharacterEntity([]);
+
+        $clericJob = new ClericJob([]);
+
+        for ($i = 1; $i <= 5; $i++) {
+            $characterEntity->set(CharacterEntity::FIELD_LEVEL, $i);
+            $clericJob->applyLevelBonus($characterEntity);
+        }
+
+        $clericJob->applyLevelBonus($characterEntity);
+
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::SKILL_PHYSICAL));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::COMBAT_ATTACK));
+        $this->assertSame(0, $characterEntity->getBonus(CharacterEntity::COMBAT_DAMAGE));
+    }
 
     public function testCanEquipArmor ()
     {
