@@ -12,6 +12,8 @@ use M20Online\Entity\CharacterEntity;
 
 final class MagiJob extends JobAbstract
 {
+    const NAME = 'magi';
+    
     /**
      * Magi have theses bonuses:
      * +3 to Knowledge.

@@ -12,6 +12,8 @@ use M20Online\Entity\CharacterEntity;
 
 final class RogueJob extends JobAbstract
 {
+    const NAME = 'rogue';
+    
     /**
      * Rogues have theses bonuses:
      * +3 to Subterfuge.

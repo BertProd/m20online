@@ -67,6 +67,10 @@ final class CharacterEntity extends EntityAbstract
 
     public function addBonus (string $pBonus, int $pValue) : void
     {
+        if ($pValue < 0) {
+            return;
+        }
+        
         $this->checkBonusExists($pBonus);
 
         $this->bonusList[$pBonus] += $pValue;

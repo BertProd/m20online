@@ -4,16 +4,18 @@ namespace M20Online\Entity;
 
 final class ArmorEntity extends EntityAbstract
 {
-    const LOWER_ARMOR = 'lower';
+    const FIELD_NAME = 'field_name';
+    const FIELD_KIND = 'field_kind';
+    const FIELD_PRICE = 'field_price';
 
-    const MEDIUM_ARMOR = 'medium';
-
-    const HEAVY_ARMOR = 'heavy';
+    const KIND_LOWER_ARMOR = 'lower';
+    const KIND_MEDIUM_ARMOR = 'medium';
+    const KIND_HEAVY_ARMOR = 'heavy';
 
     protected array $data = [
-        'name' => '',
-        'kind' => '', // lower, medium or heavy
-        'price' => ''
+        self::FIELD_NAME => '',
+        self::FIELD_KIND => '', // lower, medium or heavy
+        self::FIELD_PRICE => 0
     ];
 
     /**
@@ -21,7 +23,7 @@ final class ArmorEntity extends EntityAbstract
      */
     public function isLower() : bool
     {
-        return self::LOWER_ARMOR === $this->data['kind'];
+        return self::KIND_LOWER_ARMOR === $this->data[ArmorEntity::FIELD_KIND];
     }
 
     /**
@@ -29,7 +31,7 @@ final class ArmorEntity extends EntityAbstract
      */
     public function isMedium() : bool
     {
-        return self::MEDIUM_ARMOR === $this->data['kind'];
+        return self::KIND_MEDIUM_ARMOR === $this->data[ArmorEntity::FIELD_KIND];
     }
 
     /**
@@ -37,6 +39,6 @@ final class ArmorEntity extends EntityAbstract
      */
     public function isHeavy() : bool
     {
-        return self::HEAVY_ARMOR === $this->data['kind'];
+        return self::KIND_HEAVY_ARMOR === $this->data[ArmorEntity::FIELD_KIND];
     }
 }

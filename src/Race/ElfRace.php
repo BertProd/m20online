@@ -10,6 +10,8 @@ use M20Online\Entity\CharacterEntity;
 
 final class ElfRace extends RaceAbstract
 {
+    const NAME = 'elf';
+    
     public function applyBonus (CharacterEntity $pCharacterEntity) : void
     {
         $pCharacterEntity->addBonus(CharacterEntity::STAT_MIND, 2);

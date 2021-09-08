@@ -7,6 +7,8 @@ use M20Online\Entity\CharacterEntity;
 
 final class ClericJob extends JobAbstract
 {
+    const NAME = 'cleric';
+    
     public function applyBonus (CharacterEntity $pCharacterEntity) : void
     {
         $pCharacterEntity->addBonus(CharacterEntity::SKILL_COMMUNICATION, 3);

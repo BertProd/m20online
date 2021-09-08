@@ -10,6 +10,8 @@ use M20Online\Entity\CharacterEntity;
 
 final class HumanRace extends RaceAbstract
 {
+    const NAME = 'human';
+    
     public function applyBonus(CharacterEntity $pCharacterEntity) : void
     {
         $skills = [

@@ -36,16 +36,16 @@ final class MagiJobTest extends TestCase
 
     public function testCanEquipArmor ()
     {
-        $armorEntity = new ArmorEntity(['kind' => ArmorEntity::LOWER_ARMOR]);
+        $armorEntity = new ArmorEntity([ArmorEntity::FIELD_KIND => ArmorEntity::KIND_LOWER_ARMOR]);
 
         $magiJob = new MagiJob();
 
         $this->assertFalse($magiJob->canEquipArmor($armorEntity));
 
-        $armorEntity->set('kind', ArmorEntity::MEDIUM_ARMOR);
+        $armorEntity->set(ArmorEntity::FIELD_KIND, ArmorEntity::KIND_MEDIUM_ARMOR);
         $this->assertFalse($magiJob->canEquipArmor($armorEntity));
         
-        $armorEntity->set('kind', ArmorEntity::HEAVY_ARMOR);
+        $armorEntity->set(ArmorEntity::FIELD_KIND, ArmorEntity::KIND_HEAVY_ARMOR);
         $this->assertFalse($magiJob->canEquipArmor($armorEntity));
     }
 

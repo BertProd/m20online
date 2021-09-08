@@ -12,6 +12,8 @@ use M20Online\Entity\CharacterEntity;
 
 final class FighterJob extends JobAbstract
 {
+    const NAME = 'fighter';
+    
     /**
      * Figthers have theses bonuses:
      * +3 in physical

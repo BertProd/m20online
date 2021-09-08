@@ -95,16 +95,16 @@ final class FighterJobTest extends TestCase
 
     public function testCanEquipArmor()
     {
-        $armorEntity = new ArmorEntity(['kind' => ArmorEntity::LOWER_ARMOR]);
+        $armorEntity = new ArmorEntity([ArmorEntity::FIELD_KIND => ArmorEntity::KIND_LOWER_ARMOR]);
 
         $fighterJob = new FighterJob();
 
         $this->assertTrue($fighterJob->canEquipArmor($armorEntity));
 
-        $armorEntity->set('kind', ArmorEntity::MEDIUM_ARMOR);
+        $armorEntity->set(ArmorEntity::FIELD_KIND, ArmorEntity::KIND_MEDIUM_ARMOR);
         $this->assertTrue($fighterJob->canEquipArmor($armorEntity));
         
-        $armorEntity->set('kind', ArmorEntity::HEAVY_ARMOR);
+        $armorEntity->set(ArmorEntity::FIELD_KIND, ArmorEntity::KIND_HEAVY_ARMOR);
         $this->assertTrue($fighterJob->canEquipArmor($armorEntity));
     }
 

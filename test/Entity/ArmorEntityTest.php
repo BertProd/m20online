@@ -8,7 +8,7 @@ final class ArmorEntityTest extends TestCase
     public function testLowerArmor ()
     {
         $armorEntity = new ArmorEntity([
-            'kind' => ArmorEntity::LOWER_ARMOR
+            ArmorEntity::FIELD_KIND => ArmorEntity::KIND_LOWER_ARMOR
         ]);
 
         $this->assertTrue($armorEntity->isLower());
@@ -19,7 +19,7 @@ final class ArmorEntityTest extends TestCase
     public function testMediumArmor ()
     {
         $armorEntity = new ArmorEntity([
-            'kind' => ArmorEntity::MEDIUM_ARMOR
+            ArmorEntity::FIELD_KIND => ArmorEntity::KIND_MEDIUM_ARMOR
         ]);
 
         $this->assertFalse($armorEntity->isLower());
@@ -30,7 +30,7 @@ final class ArmorEntityTest extends TestCase
     public function testHeavyArmor ()
     {
         $armorEntity = new ArmorEntity([
-            'kind' => ArmorEntity::HEAVY_ARMOR
+            ArmorEntity::FIELD_KIND => ArmorEntity::KIND_HEAVY_ARMOR
         ]);
 
         $this->assertFalse($armorEntity->isLower());

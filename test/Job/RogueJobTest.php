@@ -36,16 +36,16 @@ final class RogueJobTest extends TestCase
 
     public function testCanEquipArmor ()
     {
-        $armorEntity = new ArmorEntity(['kind' => ArmorEntity::LOWER_ARMOR]);
+        $armorEntity = new ArmorEntity([ArmorEntity::FIELD_KIND => ArmorEntity::KIND_LOWER_ARMOR]);
 
         $rogueJob = new RogueJob();
 
         $this->assertTrue($rogueJob->canEquipArmor($armorEntity));
 
-        $armorEntity->set('kind', ArmorEntity::MEDIUM_ARMOR);
+        $armorEntity->set(ArmorEntity::FIELD_KIND, ArmorEntity::KIND_MEDIUM_ARMOR);
         $this->assertFalse($rogueJob->canEquipArmor($armorEntity));
         
-        $armorEntity->set('kind', ArmorEntity::HEAVY_ARMOR);
+        $armorEntity->set(ArmorEntity::FIELD_KIND, ArmorEntity::KIND_HEAVY_ARMOR);
         $this->assertFalse($rogueJob->canEquipArmor($armorEntity));
     }
 
