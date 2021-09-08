@@ -4,7 +4,11 @@ namespace M20Online\Job;
 
 use InvalidArgumentException;
 use LogicException;
+use M20Online\Job\ClericJob;
+use M20Online\Job\FighterJob;
 use M20Online\Job\JobFactory;
+use M20Online\Job\MagiJob;
+use M20Online\Job\RogueJob;
 use PHPUnit\Framework\TestCase;
 
 final class NointerfaceJob
@@ -18,17 +22,17 @@ final class JobFactoryTest extends TestCase
     {
         $jobFactory = new JobFactory();
 
-        $res = $jobFactory->factory('cleric');
-        $this->assertInstanceOf('M20Online\Job\ClericJob', $res);
+        $res = $jobFactory->factory(ClericJob::NAME);
+        $this->assertInstanceOf(ClericJob::class, $res);
 
-        $res = $jobFactory->factory('fighter');
-        $this->assertInstanceOf('M20Online\Job\FighterJob', $res);
+        $res = $jobFactory->factory(FighterJob::NAME);
+        $this->assertInstanceOf(FighterJob::class, $res);
 
-        $res = $jobFactory->factory('magi');
-        $this->assertInstanceOf('M20Online\Job\MagiJob', $res);
+        $res = $jobFactory->factory(MagiJob::NAME);
+        $this->assertInstanceOf(MagiJob::class, $res);
 
-        $res = $jobFactory->factory('rogue');
-        $this->assertInstanceOf('M20Online\Job\RogueJob', $res);
+        $res = $jobFactory->factory(RogueJob::NAME);
+        $this->assertInstanceOf(RogueJob::class, $res);
     }
 
     public function testFactoryWithNonExistingJob ()

@@ -4,6 +4,9 @@ namespace M20Online\Race;
 
 use InvalidArgumentException;
 use LogicException;
+use M20Online\Race\DwarfRace;
+use M20Online\Race\ElfRace;
+use M20Online\Race\HalflingRace;
 use M20Online\Race\HumanRace;
 use M20Online\Race\RaceFactory;
 use PHPUnit\Framework\TestCase;
@@ -19,17 +22,17 @@ final class RaceFactoryTest extends TestCase
     {
         $raceFactory = new RaceFactory();
 
-        $humanRace = $raceFactory->factory('dwarf');
-        $this->assertInstanceOf('M20Online\Race\DwarfRace', $humanRace);
+        $res = $raceFactory->factory(DwarfRace::NAME);
+        $this->assertInstanceOf(DwarfRace::class, $res);
 
-        $humanRace = $raceFactory->factory('elf');
-        $this->assertInstanceOf('M20Online\Race\ElfRace', $humanRace);
+        $res = $raceFactory->factory(ElfRace::NAME);
+        $this->assertInstanceOf(ElfRace::class, $res);
 
-        $humanRace = $raceFactory->factory('halfling');
-        $this->assertInstanceOf('M20Online\Race\HalflingRace', $humanRace);
+        $res = $raceFactory->factory(HalflingRace::NAME);
+        $this->assertInstanceOf(HalflingRace::class, $res);
 
-        $humanRace = $raceFactory->factory('human');
-        $this->assertInstanceOf('M20Online\Race\HumanRace', $humanRace);
+        $res = $raceFactory->factory(HumanRace::NAME);
+        $this->assertInstanceOf(HumanRace::class, $res);
     }
 
     public function testFactoryNonExistingRace()
