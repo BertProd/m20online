@@ -1,5 +1,5 @@
 <?php
-namespace M20Online\Entity;
+namespace M20OnlineCore\Entity;
 
 use InvalidArgumentException;
 

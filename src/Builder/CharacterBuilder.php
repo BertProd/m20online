@@ -1,13 +1,13 @@
 <?php
 
-namespace M20Online\Builder;
+namespace M20OnlineCore\Builder;
 
-use M20Online\Dice\HpDice;
-use M20Online\Dice\RandomGenerator;
-use M20Online\Dice\StatDice;
-use M20Online\Entity\CharacterEntity;
-use M20Online\Job\JobFactory;
-use M20Online\Race\RaceFactory;
+use M20OnlineCore\Dice\HpDice;
+use M20OnlineCore\Dice\RandomGenerator;
+use M20OnlineCore\Dice\StatDice;
+use M20OnlineCore\Entity\CharacterEntity;
+use M20OnlineCore\Job\JobFactory;
+use M20OnlineCore\Race\RaceFactory;
 
 final class CharacterBuilder extends BuilderAbstract
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace M20Online\Race;
+namespace M20OnlineCore\Race;
 
 use InvalidArgumentException;
 use LogicException;
-use M20Online\Race\DwarfRace;
-use M20Online\Race\ElfRace;
-use M20Online\Race\HalflingRace;
-use M20Online\Race\HumanRace;
-use M20Online\Race\RaceFactory;
+use M20OnlineCore\Race\DwarfRace;
+use M20OnlineCore\Race\ElfRace;
+use M20OnlineCore\Race\HalflingRace;
+use M20OnlineCore\Race\HumanRace;
+use M20OnlineCore\Race\RaceFactory;
 use PHPUnit\Framework\TestCase;
 
 final class NointerfaceRace
@@ -38,7 +38,7 @@ final class RaceFactoryTest extends TestCase
     public function testFactoryNonExistingRace()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Race nonexist (M20Online\Race\NonexistRace) not found');
+        $this->expectExceptionMessage('Race nonexist (M20OnlineCore\Race\NonexistRace) not found');
         
         $raceFactory = new RaceFactory();
 

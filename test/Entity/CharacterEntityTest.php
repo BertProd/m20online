@@ -1,6 +1,6 @@
 <?php
 
-use M20Online\Entity\CharacterEntity;
+use M20OnlineCore\Entity\CharacterEntity;
 use PHPUnit\Framework\TestCase;
 
 final class CharacterEntityTest extends TestCase

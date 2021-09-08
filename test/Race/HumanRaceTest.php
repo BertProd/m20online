@@ -1,7 +1,7 @@
 <?php
 
-use M20Online\Entity\CharacterEntity;
-use M20Online\Race\HumanRace;
+use M20OnlineCore\Entity\CharacterEntity;
+use M20OnlineCore\Race\HumanRace;
 use PHPUnit\Framework\TestCase;
 
 final class HumanRaceTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use M20Online\Entity\ArmorEntity;
+use M20OnlineCore\Entity\ArmorEntity;
 use PHPUnit\Framework\TestCase;
 
 final class ArmorEntityTest extends TestCase

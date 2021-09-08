@@ -1,14 +1,14 @@
 <?php
 
-namespace M20Online\Job;
+namespace M20OnlineCore\Job;
 
 use InvalidArgumentException;
 use LogicException;
-use M20Online\Job\ClericJob;
-use M20Online\Job\FighterJob;
-use M20Online\Job\JobFactory;
-use M20Online\Job\MagiJob;
-use M20Online\Job\RogueJob;
+use M20OnlineCore\Job\ClericJob;
+use M20OnlineCore\Job\FighterJob;
+use M20OnlineCore\Job\JobFactory;
+use M20OnlineCore\Job\MagiJob;
+use M20OnlineCore\Job\RogueJob;
 use PHPUnit\Framework\TestCase;
 
 final class NointerfaceJob
@@ -38,7 +38,7 @@ final class JobFactoryTest extends TestCase
     public function testFactoryWithNonExistingJob ()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Job nonexist (M20Online\Job\NonexistJob) not found');
+        $this->expectExceptionMessage('Job nonexist (M20OnlineCore\Job\NonexistJob) not found');
 
         $jobFactory = new JobFactory();
 

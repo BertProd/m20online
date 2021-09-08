@@ -5,10 +5,10 @@
  * @author Bertrand Andres <bertrand.andres.dev@gmail.com>
  */
 
-namespace M20Online\Job;
+namespace M20OnlineCore\Job;
 
-use M20Online\Entity\ArmorEntity;
-use M20Online\Entity\CharacterEntity;
+use M20OnlineCore\Entity\ArmorEntity;
+use M20OnlineCore\Entity\CharacterEntity;
 
 final class FighterJob extends JobAbstract
 {

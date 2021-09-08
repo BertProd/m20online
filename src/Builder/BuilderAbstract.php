@@ -1,6 +1,6 @@
 <?php
 
-namespace M20Online\Builder;
+namespace M20OnlineCore\Builder;
 
 abstract class BuilderAbstract
 {

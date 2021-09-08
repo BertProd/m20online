@@ -1,6 +1,6 @@
 <?php
 
-namespace M20Online\Job;
+namespace M20OnlineCore\Job;
 
 use InvalidArgumentException;
 use LogicException;

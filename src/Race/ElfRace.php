@@ -4,9 +4,9 @@
  * 
  * @author Bertrand Andres
  */
-namespace M20Online\Race;
+namespace M20OnlineCore\Race;
 
-use M20Online\Entity\CharacterEntity;
+use M20OnlineCore\Entity\CharacterEntity;
 
 final class ElfRace extends RaceAbstract
 {

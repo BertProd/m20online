@@ -1,8 +1,8 @@
 <?php
 
-use M20Online\Entity\ArmorEntity;
-use M20Online\Entity\CharacterEntity;
-use M20Online\Job\ClericJob;
+use M20OnlineCore\Entity\ArmorEntity;
+use M20OnlineCore\Entity\CharacterEntity;
+use M20OnlineCore\Job\ClericJob;
 use PHPUnit\Framework\TestCase;
 
 final class ClericJobTest extends TestCase

@@ -5,9 +5,9 @@
  * @author Bertrand Andres <bertrand.andres.dev@gmail.com>
  */
 
-namespace M20Online\Job;
+namespace M20OnlineCore\Job;
 
-use M20Online\Entity\CharacterEntity;
+use M20OnlineCore\Entity\CharacterEntity;
 
 abstract class JobAbstract implements JobInterface
 {

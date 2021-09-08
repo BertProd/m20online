@@ -1,6 +1,6 @@
 <?php
 
-namespace M20Online\Dice;
+namespace M20OnlineCore\Dice;
 
 final class RandomGenerator implements RandomGeneratorInterface
 {

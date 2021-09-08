@@ -1,15 +1,15 @@
 <?php
 
-use M20Online\Builder\CharacterBuilder;
-use M20Online\Entity\CharacterEntity;
-use M20Online\Job\ClericJob;
-use M20Online\Job\FighterJob;
-use M20Online\Job\MagiJob;
-use M20Online\Job\RogueJob;
-use M20Online\Race\DwarfRace;
-use M20Online\Race\ElfRace;
-use M20Online\Race\HalflingRace;
-use M20Online\Race\HumanRace;
+use M20OnlineCore\Builder\CharacterBuilder;
+use M20OnlineCore\Entity\CharacterEntity;
+use M20OnlineCore\Job\ClericJob;
+use M20OnlineCore\Job\FighterJob;
+use M20OnlineCore\Job\MagiJob;
+use M20OnlineCore\Job\RogueJob;
+use M20OnlineCore\Race\DwarfRace;
+use M20OnlineCore\Race\ElfRace;
+use M20OnlineCore\Race\HalflingRace;
+use M20OnlineCore\Race\HumanRace;
 use PHPUnit\Framework\TestCase;
 
 final class CharacterBuilderTest extends TestCase

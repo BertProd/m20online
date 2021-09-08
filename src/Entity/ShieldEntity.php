@@ -1,6 +1,6 @@
 <?php
 
-namespace M20Online\Entity;
+namespace M20OnlineCore\Entity;
 
 final class ShieldEntity extends EntityAbstract
 {

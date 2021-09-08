@@ -2,8 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 
-use M20Online\Dice\RandomGeneratorInterface;
-use M20Online\Dice\HpDice;
+use M20OnlineCore\Dice\RandomGeneratorInterface;
+use M20OnlineCore\Dice\HpDice;
 
 final class M20MockRandomGeneratorHp implements RandomGeneratorInterface
 {

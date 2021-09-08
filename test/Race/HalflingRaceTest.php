@@ -1,7 +1,7 @@
 <?php
 
-use M20Online\Entity\CharacterEntity;
-use M20Online\Race\HalflingRace;
+use M20OnlineCore\Entity\CharacterEntity;
+use M20OnlineCore\Race\HalflingRace;
 use PHPUnit\Framework\TestCase;
 
 final class HalflingRaceTest extends TestCase

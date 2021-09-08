@@ -1,7 +1,7 @@
 <?php
 
-use M20Online\Entity\CharacterEntity;
-use M20Online\Race\DwarfRace;
+use M20OnlineCore\Entity\CharacterEntity;
+use M20OnlineCore\Race\DwarfRace;
 use PHPUnit\Framework\TestCase;
 
 final class DwarfRaceTest extends TestCase

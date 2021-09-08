@@ -1,6 +1,6 @@
 <?php
 
-use M20Online\Dice\RandomGenerator;
+use M20OnlineCore\Dice\RandomGenerator;
 use PHPUnit\Framework\TestCase;
 
 final class RandomGeneratorTest extends TestCase

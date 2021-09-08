@@ -1,5 +1,5 @@
 <?php
-namespace M20Online\Race;
+namespace M20OnlineCore\Race;
 
 use InvalidArgumentException;
 use LogicException;
