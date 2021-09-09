@@ -11,7 +11,7 @@ use M20OnlineCore\Race\RaceFactory;
 
 final class CharacterBuilder extends BuilderAbstract
 {
-    public function build (string $pRace, string $pJob) : CharacterEntity
+    public function build(string $pRace, string $pJob): CharacterEntity
     {
         $characterEntity = new CharacterEntity([
             CharacterEntity::FIELD_LEVEL => 1,
@@ -26,7 +26,7 @@ final class CharacterBuilder extends BuilderAbstract
         return $characterEntity;
     }
 
-    private function applyBonus (CharacterEntity $pCharacterEntity) : void
+    private function applyBonus(CharacterEntity $pCharacterEntity): void
     {
         $raceFactory = new RaceFactory();
         $race = $raceFactory->factory($pCharacterEntity->get(CharacterEntity::FIELD_RACE));
@@ -39,7 +39,7 @@ final class CharacterBuilder extends BuilderAbstract
         $job->applyBonus($pCharacterEntity);
     }
 
-    private function rollHp (CharacterEntity $pCharacterEntity) : void
+    private function rollHp(CharacterEntity $pCharacterEntity): void
     {
         $randomGenerator = new RandomGenerator();
         $hpDice = new HpDice($randomGenerator);
@@ -51,7 +51,7 @@ final class CharacterBuilder extends BuilderAbstract
         $pCharacterEntity->set(CharacterEntity::FIELD_HP, $hp);
     }
 
-    private function rollStats (CharacterEntity $pCharacterEntity) : void
+    private function rollStats(CharacterEntity $pCharacterEntity): void
     {
         $randomGenerator = new RandomGenerator();
         $statDice = new StatDice($randomGenerator);

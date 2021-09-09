@@ -1,18 +1,20 @@
 <?php
+
 /**
  * According to microlite20 rules, humans get bonus +1 for each skill
- * 
+ *
  * @author Bertrand Andres
  */
+
 namespace M20OnlineCore\Race;
 
 use M20OnlineCore\Entity\CharacterEntity;
 
 final class HumanRace extends RaceAbstract
 {
-    const NAME = 'human';
-    
-    public function applyBonus(CharacterEntity $pCharacterEntity) : void
+    public const NAME = 'human';
+
+    public function applyBonus(CharacterEntity $pCharacterEntity): void
     {
         $skills = [
             CharacterEntity::SKILL_COMMUNICATION,
@@ -20,7 +22,6 @@ final class HumanRace extends RaceAbstract
             CharacterEntity::SKILL_PHYSICAL,
             CharacterEntity::SKILL_SUBTERFUGE
         ];
-
         foreach ($skills as $skill) {
             $pCharacterEntity->addBonus($skill, 1);
         }

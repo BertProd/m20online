@@ -1,4 +1,5 @@
 <?php
+
 namespace M20OnlineCore\Dice;
 
 final class StatDice extends DiceAbstract
@@ -10,7 +11,7 @@ final class StatDice extends DiceAbstract
         $this->randomGenerator = $pRandomGenerator;
     }
 
-    public function roll() : int
+    public function roll(): int
     {
         $resultsList = [];
 
@@ -23,7 +24,7 @@ final class StatDice extends DiceAbstract
         sort($resultsList);
         array_shift($resultsList);
 
-        // Sum remaining values and return it: 
+        // Sum remaining values and return it:
         return array_sum($resultsList);
     }
 }

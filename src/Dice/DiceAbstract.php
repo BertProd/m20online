@@ -1,7 +1,8 @@
 <?php
+
 namespace M20OnlineCore\Dice;
 
-abstract class DiceAbstract implements DiceInterface 
+abstract class DiceAbstract implements DiceInterface
 {
     //
 }

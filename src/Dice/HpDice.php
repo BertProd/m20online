@@ -1,4 +1,5 @@
 <?php
+
 namespace M20OnlineCore\Dice;
 
 use LogicException;
@@ -12,7 +13,7 @@ final class HpDice extends DiceAbstract
         $this->randomGenerator = $pRandomGenerator;
     }
 
-    public function roll() : int
+    public function roll(): int
     {
         return $this->randomGenerator->rollNumberBetween(1, 6);
     }

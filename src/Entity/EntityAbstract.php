@@ -1,4 +1,5 @@
 <?php
+
 namespace M20OnlineCore\Entity;
 
 use InvalidArgumentException;
@@ -6,17 +7,16 @@ use InvalidArgumentException;
 abstract class EntityAbstract
 {
     private int $id = 0;
-
     protected array $data = [];
 
-    public function __construct (array $pData = [])
+    public function __construct(array $pData = [])
     {
         foreach ($pData as $key => $value) {
             $this->set($key, $value);
         }
     }
 
-    public function set(string $pKey, $pValue) : void
+    public function set(string $pKey, $pValue): void
     {
         if ('id' === $pKey) {
             $this->id = $pValue;
@@ -24,7 +24,7 @@ abstract class EntityAbstract
         }
 
         if (!array_key_exists($pKey, $this->data)) {
-            throw new InvalidArgumentException('key '.$pKey.' does not exist');
+            throw new InvalidArgumentException('key ' . $pKey . ' does not exist');
         }
 
         $this->data[$pKey] = $pValue;
@@ -35,9 +35,9 @@ abstract class EntityAbstract
         if ('id' === $pKey) {
             return $this->id;
         }
-        
+
         if (!array_key_exists($pKey, $this->data)) {
-            throw new InvalidArgumentException('key '.$pKey.' does not exist');
+            throw new InvalidArgumentException('key ' . $pKey . ' does not exist');
         }
 
         return $this->data[$pKey];
