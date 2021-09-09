@@ -4,7 +4,7 @@
     "description": "Core classes to generate and use microlite 20 TTRPG characters according to purest essence rules",
     "keywords": ["RPG", "TTRPG", "Microlite20"],
     "homepage": "https://github.com/BertProd/m20online-core",
-    "licence": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Bertrand Andres",
