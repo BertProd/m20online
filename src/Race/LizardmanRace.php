@@ -13,7 +13,7 @@ namespace M20OnlineCore\Race;
 
 use M20OnlineCore\Entity\CharacterEntity;
 
-final class LizardmanRace extends CharacterEntity
+final class LizardmanRace extends RaceAbstract
 {
     public const NAME = 'lizardman';
 

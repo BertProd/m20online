@@ -12,7 +12,7 @@ namespace M20OnlineCore\Race;
 
 use M20OnlineCore\Entity\CharacterEntity;
 
-final class KoboldRace extends CharacterEntity
+final class KoboldRace extends RaceAbstract
 {
     public const NAME = 'kobold';
 
