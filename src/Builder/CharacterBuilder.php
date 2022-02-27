@@ -11,10 +11,10 @@ use M20OnlineCore\Race\RaceFactory;
 
 final class CharacterBuilder extends BuilderAbstract
 {
-    public function build(string $pRace, string $pJob): CharacterEntity
+    public function build(string $pRace, string $pJob, int $pLevel = 1): CharacterEntity
     {
         $characterEntity = new CharacterEntity([
-            CharacterEntity::FIELD_LEVEL => 1,
+            CharacterEntity::FIELD_LEVEL => $pLevel,
             CharacterEntity::FIELD_RACE => $pRace,
             CharacterEntity::FIELD_JOB => $pJob
         ]);
